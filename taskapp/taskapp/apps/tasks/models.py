@@ -13,3 +13,8 @@ class Task(models.Model):
         blank=False,
         max_length=1000
     )
+    complete = models.BooleanField(
+        null=False,
+        blank=False,
+        default=False
+    )
