@@ -8,6 +8,11 @@ class Task(models.Model):
         editable=False,
         default=timezone.now
     )
+    title = models.TextField(
+        null=False,
+        blank=False,
+        max_length=100
+    )
     description = models.TextField(
         null=False,
         blank=False,

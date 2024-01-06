@@ -32,7 +32,7 @@
     <link href="{% static 'theme/assets/css/style.css' %}" rel="stylesheet">
   </head>
   <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
-    {% include "header.html" %}
+    {% include "base/header.html" %}
     {% block main %}{% endblock %}
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 

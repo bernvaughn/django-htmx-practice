@@ -1,0 +1,13 @@
+<div class="col-auto col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+    <div class="icon-box" id="icon-box-task-{{ task.id }}">
+        <div class="icon">
+            {% if task.complete %}
+            <i class="ri-checkbox-circle-fill"></i>
+            {% else %}
+            <i class="ri-checkbox-blank-circle-fill"></i>
+            {% endif %}
+        </div>
+        <h4 class="title">{{ task.title }}</h4>
+        <p class="description">{{ task.description }}</p>
+    </div>
+</div>
