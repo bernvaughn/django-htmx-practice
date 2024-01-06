@@ -34,7 +34,12 @@
   <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
     {% include "base/header.html" %}
     {% block main %}{% endblock %}
+
+    <!-- htmx base -->
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+
+    <!-- htmx sse -->
+    <script src="https://unpkg.com/htmx.org/dist/ext/sse.js"></script>
 
     <!-- Vendor JS Files -->
     <script src="{% static 'theme/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>

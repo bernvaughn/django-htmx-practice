@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'taskapp.apps.tasks'
+    'channels',
+    'django_eventstream',
+
+    'taskapp.apps.tasks',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_grip.GripMiddleware',
 ]
 
 ROOT_URLCONF = 'taskapp.urls'
@@ -78,6 +82,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'taskapp.wsgi.application'
+ASGI_APPLICATION = 'taskapp.asgi.application'
 
 
 # Database

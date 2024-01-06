@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django_eventstream import send_event
 
 class Task(models.Model):
     when = models.DateTimeField(
@@ -8,7 +9,7 @@ class Task(models.Model):
         editable=False,
         default=timezone.now
     )
-    title = models.TextField(
+    title = models.CharField(
         null=False,
         blank=False,
         max_length=100
@@ -23,3 +24,16 @@ class Task(models.Model):
         blank=False,
         default=False
     )
+
+    def save(self, *args, **kwargs):
+        # save the instance
+        super().save(*args, **kwargs)
+
+        # send on the channel
+        send_event(
+            'task-updates-channel',
+            f'saved-task-{self.id}',
+            {
+                'id': self.id
+            }
+        )

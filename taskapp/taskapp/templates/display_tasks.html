@@ -10,15 +10,18 @@
             <h2>I like django</h2>
         </div>
     </div>
-
-    <div class="row icon-boxes">
+    <div id="task-sse-element" class="row icon-boxes"
+            hx-ext="sse"
+            sse-connect="/events">
         {% for task in tasks %}
         <div id="task-{{ task.id }}"
             hx-get="{% url 'task_box_partial' task.id %}"
             hx-swap="outerHTML"
-            hx-target="this"
-            hx-trigger="load"
+            hx-target="#icon-box-task-wrapper-{{ task.id }}"
+            hx-trigger="load, sse:saved-task-{{ task.id }}"
             >
+            <div id="icon-box-task-wrapper-{{ task.id }}">
+            </div>
         </div>
         {% endfor %}
     </div>
